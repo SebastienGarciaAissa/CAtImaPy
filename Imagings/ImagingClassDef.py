@@ -183,9 +183,9 @@ class ImagingClass():
         self.T_tempYaxisuK = np.zeros(1)
         # self.T_tempYaxisuKErr = np.zeros(1)
         self.T_tempXaxisuKList = np.zeros((1,1))
-        self.T_tempXaxisuKErrList = np.zeros((1,1))
+        # self.T_tempXaxisuKErrList = np.zeros((1,1))
         self.T_tempYaxisuKList = np.zeros((1,1))
-        self.T_tempYaxisuKErrList = np.zeros((1,1))
+        # self.T_tempYaxisuKErrList = np.zeros((1,1))
         self.T_cloudRadiusumXaxis = np.zeros((1,1))
         self.T_cloudRadiusumXaxisErr = np.zeros((1,1))
         self.T_cloudRadiusumYaxis = np.zeros((1,1))
@@ -568,9 +568,9 @@ class ImagingClass():
                 self.fit_T_measurement(ui)
                 self.plot_T_measurement()
                 self.T_tempXaxisuKList[:,i] = self.T_tempXaxisuK
-                self.T_tempXaxisuKErrList[:,i] = self.T_tempXaxisuKErr
+                # self.T_tempXaxisuKErrList[:,i] = self.T_tempXaxisuKErr
                 self.T_tempYaxisuKList[:,i] = self.T_tempYaxisuK
-                self.T_tempYaxisuKErrList[:,i] = self.T_tempYaxisuKErr
+                # self.T_tempYaxisuKErrList[:,i] = self.T_tempYaxisuKErr
                 self.T_atomNumberArray[:,i] = self.atomNumberArray
                 self.T_atomNumberAvList[:,i] =  self.atomNumberAvList
                 self.T_atomNumberAvErrList[:,i] = self.atomNumberAvErrList
@@ -1183,7 +1183,7 @@ class ImagingClass():
             self.T_tempXaxisuK[ROIi] = linfitTX.p[0] * self.atomicMassAU*self.atomicMassUnitinSI / self.kB
             self.linfitTX_xaxis[ROIi] = linfitTX.x
             self.linfitTX_yaxis[ROIi] = linfitTX.y
-        # ui.lcdNumber_T_TempXaxisuK.display(self.T_tempXaxisuK[self.ROIblackTabIndex])
+        ui.lcdNumber_T_TempXaxisuK.display(self.T_tempXaxisuK[self.ROIblackTabIndex])
         # ui.lcdNumber_T_TempXaxisuKErr.display(self.T_tempXaxisuKErr[self.ROIblackTabIndex])
         # fit temperature for Y axis : use results of fit of average atomic density 'cloudAv'
         self.T_cloudRadiusumYaxis = self.cloudAvRadiiumList[:,:,0] 
@@ -1207,7 +1207,7 @@ class ImagingClass():
             self.T_tempYaxisuK[ROIi] = linfitTY.p[0] * self.atomicMassAU*self.atomicMassUnitinSI / self.kB
             self.linfitTY_xaxis[ROIi] = linfitTY.x
             self.linfitTY_yaxis[ROIi] = linfitTY.y
-        # ui.lcdNumber_T_TempYaxisuK.display(self.T_tempYaxisuK[self.ROIblackTabIndex])
+        ui.lcdNumber_T_TempYaxisuK.display(self.T_tempYaxisuK[self.ROIblackTabIndex])
         # ui.lcdNumber_T_TempYaxisuKErr.display(self.T_tempYaxisuKErr[self.ROIblackTabIndex])
         
         
