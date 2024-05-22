@@ -179,9 +179,9 @@ class ImagingClass():
         # define temperature measurement variables
         self.T_TOFmsaxis = np.zeros(1)
         self.T_tempXaxisuK = np.zeros(1)
-        self.T_tempXaxisuKErr = np.zeros(1)
+        # self.T_tempXaxisuKErr = np.zeros(1)
         self.T_tempYaxisuK = np.zeros(1)
-        self.T_tempYaxisuKErr = np.zeros(1)
+        # self.T_tempYaxisuKErr = np.zeros(1)
         self.T_tempXaxisuKList = np.zeros((1,1))
         self.T_tempXaxisuKErrList = np.zeros((1,1))
         self.T_tempYaxisuKList = np.zeros((1,1))
@@ -538,9 +538,9 @@ class ImagingClass():
         self.scanVarName = ui.lineEdit_scanVarName.text()
         self.scanUnitName = ui.lineEdit_scanUnitName.text()
         self.T_tempXaxisuKList = np.zeros((self.ROIn,self.T_scans))
-        self.T_tempXaxisuKErrList = np.zeros((self.ROIn,self.T_scans))
+        # self.T_tempXaxisuKErrList = np.zeros((self.ROIn,self.T_scans))
         self.T_tempYaxisuKList = np.zeros((self.ROIn,self.T_scans))
-        self.T_tempYaxisuKErrList = np.zeros((self.ROIn,self.T_scans))
+        # self.T_tempYaxisuKErrList = np.zeros((self.ROIn,self.T_scans))
         self.T_atomNumberArray = np.zeros((self.ROIn,self.T_scans,self.T_TOFscans,self.T_averages))
         self.T_atomNumberAvList =  np.zeros((self.ROIn,self.T_scans,self.T_TOFscans))
         self.T_atomNumberAvErrList = np.zeros((self.ROIn,self.T_scans,self.T_TOFscans))
@@ -659,8 +659,8 @@ class ImagingClass():
                 self.LT_atomNumberTStartFittedErrList[:,i] = self.LT_atomNumberTStartFittedErr
                 self.LT_atomNumberOffsetFittedList[:,i] = self.LT_atomNumberOffsetFitted
                 self.LT_atomNumberOffsetFittedErrList[:,i] = self.LT_atomNumberOffsetFittedErr
-                self.LT_atomNumberAvTStartList[:,i] = self.atomNumberAvList[:,0] # value was 1 previously, probably error, TODO check if this do not change anything
-                self.LT_atomNumberAvTStartErrList[:,i] = self.atomNumberAvErrList[:,0] #idem
+                self.LT_atomNumberAvTStartList[:,i] = self.atomNumberAvList[:,0] 
+                self.LT_atomNumberAvTStartErrList[:,i] = self.atomNumberAvErrList[:,0] 
                 self.LT_atomNumberArray[:,i] = self.atomNumberArray
                 self.LT_atomNumberAvList[:,i] =  self.atomNumberAvList
                 self.LT_atomNumberAvErrList[:,i] = self.atomNumberAvErrList
@@ -1166,15 +1166,15 @@ class ImagingClass():
         self.T_cloudRadiusumXaxisErr = self.cloudRadiiumAvErrList[:,:,1] 
         #define results arrays 
         self.T_tempXaxisuK = np.zeros(self.ROIn)
-        self.T_tempXaxisuKErr = np.zeros(self.ROIn)
+        # self.T_tempXaxisuKErr = np.zeros(self.ROIn)
         self.linfitTX_xaxis = np.zeros((self.ROIn, 200))
         self.linfitTX_yaxis = np.zeros((self.ROIn, 200))
         for ROIi in range(self.ROIn) :
             linfitTX = fittool.FitUtility(self.T_TOFmsaxis**2, self.T_cloudRadiusumXaxis[ROIi]**2,
                                                fittool.linear, NumberOfSteps= 200)
-            #temperature error estimate not working because fit too dependent on cloud radius error dependence with TOF
+            #temperature error estimate not working because fit too dependent on cloud radius error dependence with TOF or if one of the gaussian fit fails
             # if self.T_averages == 1 : 
-            self.T_tempXaxisuKErr[ROIi] = 0.
+            # self.T_tempXaxisuKErr[ROIi] = 0.
             #else :
             #    linfitTX = fittool.FitUtility(self.T_TOFmsaxis**2, self.T_cloudRadiusumXaxis[ROIi]**2,
             #                                  fittool.linear, yerr = self.T_cloudRadiusumXaxisErr[ROIi]**2,
@@ -1183,22 +1183,22 @@ class ImagingClass():
             self.T_tempXaxisuK[ROIi] = linfitTX.p[0] * self.atomicMassAU*self.atomicMassUnitinSI / self.kB
             self.linfitTX_xaxis[ROIi] = linfitTX.x
             self.linfitTX_yaxis[ROIi] = linfitTX.y
-        ui.lcdNumber_T_TempXaxisuK.display(self.T_tempXaxisuK[self.ROIblackTabIndex])
-        ui.lcdNumber_T_TempXaxisuKErr.display(self.T_tempXaxisuKErr[self.ROIblackTabIndex])
+        # ui.lcdNumber_T_TempXaxisuK.display(self.T_tempXaxisuK[self.ROIblackTabIndex])
+        # ui.lcdNumber_T_TempXaxisuKErr.display(self.T_tempXaxisuKErr[self.ROIblackTabIndex])
         # fit temperature for Y axis : use results of fit of average atomic density 'cloudAv'
         self.T_cloudRadiusumYaxis = self.cloudAvRadiiumList[:,:,0] 
         self.T_cloudRadiusumYaxisErr = self.cloudRadiiumAvErrList[:,:,0] 
         #define results arrays 
         self.T_tempYaxisuK = np.zeros(self.ROIn)
-        self.T_tempYaxisuKErr = np.zeros(self.ROIn)
+        # self.T_tempYaxisuKErr = np.zeros(self.ROIn)
         self.linfitTY_xaxis = np.zeros((self.ROIn, 200))
         self.linfitTY_yaxis = np.zeros((self.ROIn, 200))
         for ROIi in range(self.ROIn) :
-            #temperature error estimate not working because fit too dependent on cloud radius error dependence with TOF
+            #  temperature error estimate not working because fit too dependent on cloud radius error dependence with TOF or if one of the gaussian fit fails
             # if self.T_averages == 1 : 
             linfitTY = fittool.FitUtility(self.T_TOFmsaxis**2, self.T_cloudRadiusumYaxis[ROIi]**2,
                                            fittool.linear, NumberOfSteps= 200)
-            self.T_tempYaxisuKErr[ROIi] = 0.
+            # self.T_tempYaxisuKErr[ROIi] = 0.
             # else :
             #     linfitTY = fittool.FitUtility(self.T_TOFmsaxis**2, self.T_cloudRadiusumYaxis[ROIi]**2,
             #                                    fittool.linear, yerr = self.T_cloudRadiusumYaxisErr[ROIi]**2,
@@ -1207,8 +1207,8 @@ class ImagingClass():
             self.T_tempYaxisuK[ROIi] = linfitTY.p[0] * self.atomicMassAU*self.atomicMassUnitinSI / self.kB
             self.linfitTY_xaxis[ROIi] = linfitTY.x
             self.linfitTY_yaxis[ROIi] = linfitTY.y
-        ui.lcdNumber_T_TempYaxisuK.display(self.T_tempYaxisuK[self.ROIblackTabIndex])
-        ui.lcdNumber_T_TempYaxisuKErr.display(self.T_tempYaxisuKErr[self.ROIblackTabIndex])
+        # ui.lcdNumber_T_TempYaxisuK.display(self.T_tempYaxisuK[self.ROIblackTabIndex])
+        # ui.lcdNumber_T_TempYaxisuKErr.display(self.T_tempYaxisuKErr[self.ROIblackTabIndex])
         
         
     def plot_T_measurement(self):
@@ -1462,7 +1462,7 @@ class ImagingClass():
                     ax1.plot(self.T_scan_xaxis, self.T_tempXaxisuKList[ROItabIndexList[ROIi]],
                                  color=self.ROIcolorList[ROIi], linestyle=self.linestyles1[0])
                     ax1.errorbar(self.T_scan_xaxis, self.T_tempXaxisuKList[ROItabIndexList[ROIi]],
-                                 yerr = self.T_tempXaxisuKErrList[ROItabIndexList[ROIi]], 
+                                 # yerr = self.T_tempXaxisuKErrList[ROItabIndexList[ROIi]], 
                                  color = self.colorL, linestyle=self.linestyles1[1],
                                  marker=self.markerL1, ms = self.markerSize , markerfacecolor=self.colorL,
                                  markeredgewidth = self.markerEdgeWidth, markeredgecolor=self.ROIcolorList[ROIi], 
@@ -1471,7 +1471,7 @@ class ImagingClass():
                     ax1.plot(self.T_scan_xaxis, self.T_tempYaxisuKList[ROItabIndexList[ROIi]], 
                                  color=self.ROIcolorList[ROIi], linestyle=self.linestyles2[0])
                     ax1.errorbar(self.T_scan_xaxis, self.T_tempYaxisuKList[ROItabIndexList[ROIi]], 
-                                 yerr = self.T_tempYaxisuKErrList[ROItabIndexList[ROIi]], 
+                                 # yerr = self.T_tempYaxisuKErrList[ROItabIndexList[ROIi]], 
                                  color = self.colorL2, linestyle=self.linestyles2[1],
                                  marker=self.markerL2, ms = self.markerSize , markerfacecolor=self.colorL2,
                                  markeredgewidth = self.markerEdgeWidth, markeredgecolor=self.ROIcolorList[ROIi], 
@@ -1554,7 +1554,7 @@ class ImagingClass():
                     ax2.plot(self.T_scan_xaxis, self.T_tempXaxisuKList[ROItabIndexList[ROIi]],
                                  color=self.ROIcolorList[ROIi], linestyle=self.linestyles1[0])
                     ax2.errorbar(self.T_scan_xaxis, self.T_tempXaxisuKList[ROItabIndexList[ROIi]],
-                                 yerr = self.T_tempXaxisuKErrList[ROItabIndexList[ROIi]],
+                                 # yerr = self.T_tempXaxisuKErrList[ROItabIndexList[ROIi]],
                                  color = self.colorR, linestyle=self.linestyles1[1],
                                  marker=self.markerR1, ms = self.markerSize , markerfacecolor=self.colorR,
                                  markeredgewidth = self.markerEdgeWidth, markeredgecolor=self.ROIcolorList[ROIi], 
@@ -1563,7 +1563,7 @@ class ImagingClass():
                     ax2.plot(self.T_scan_xaxis, self.T_tempYaxisuKList[ROItabIndexList[ROIi]],
                                  color=self.ROIcolorList[ROIi], linestyle=self.linestyles2[0])
                     ax2.errorbar(self.T_scan_xaxis, self.T_tempYaxisuKList[ROItabIndexList[ROIi]],
-                                 yerr = self.T_tempYaxisuKErrList[ROItabIndexList[ROIi]],
+                                 # yerr = self.T_tempYaxisuKErrList[ROItabIndexList[ROIi]],
                                  color = self.colorR2, linestyle=self.linestyles2[1],
                                  marker=self.markerR2, ms = self.markerSize , markerfacecolor=self.colorR2,
                                  markeredgewidth = self.markerEdgeWidth, markeredgecolor=self.ROIcolorList[ROIi], 

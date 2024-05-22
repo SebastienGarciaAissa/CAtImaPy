@@ -3999,34 +3999,6 @@
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
-           <widget class="QLCDNumber" name="lcdNumber_T_TempYaxisuKErr">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>170</y>
-              <width>101</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="smallDecimalPoint">
-             <bool>false</bool>
-            </property>
-            <property name="digitCount">
-             <number>7</number>
-            </property>
-            <property name="mode">
-             <enum>QLCDNumber::Dec</enum>
-            </property>
-            <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
-            </property>
-            <property name="value" stdset="0">
-             <double>0.000000000000000</double>
-            </property>
-            <property name="intValue" stdset="0">
-             <number>0</number>
-            </property>
-           </widget>
            <widget class="QLCDNumber" name="lcdNumber_T_TempXaxisuK">
             <property name="geometry">
              <rect>
@@ -4083,22 +4055,6 @@
              <number>0</number>
             </property>
            </widget>
-           <widget class="QLabel" name="label_136">
-            <property name="geometry">
-             <rect>
-              <x>490</x>
-              <y>140</y>
-              <width>31</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>+/-</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_128">
             <property name="geometry">
              <rect>
@@ -4110,22 +4066,6 @@
             </property>
             <property name="text">
              <string>µK</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_137">
-            <property name="geometry">
-             <rect>
-              <x>490</x>
-              <y>170</y>
-              <width>31</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>+/-</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -4177,34 +4117,6 @@
             </property>
             <property name="digitCount">
              <number>9</number>
-            </property>
-            <property name="mode">
-             <enum>QLCDNumber::Dec</enum>
-            </property>
-            <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
-            </property>
-            <property name="value" stdset="0">
-             <double>0.000000000000000</double>
-            </property>
-            <property name="intValue" stdset="0">
-             <number>0</number>
-            </property>
-           </widget>
-           <widget class="QLCDNumber" name="lcdNumber_T_TempXaxisuKErr">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>140</y>
-              <width>101</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="smallDecimalPoint">
-             <bool>false</bool>
-            </property>
-            <property name="digitCount">
-             <number>7</number>
             </property>
             <property name="mode">
              <enum>QLCDNumber::Dec</enum>
@@ -4571,9 +4483,12 @@
             </property>
            </widget>
            <widget class="QLabel" name="label_139">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
-              <x>630</x>
+              <x>500</x>
               <y>170</y>
               <width>31</width>
               <height>21</height>
@@ -4587,9 +4502,12 @@
             </property>
            </widget>
            <widget class="QLabel" name="label_140">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
-              <x>630</x>
+              <x>500</x>
               <y>140</y>
               <width>31</width>
               <height>21</height>

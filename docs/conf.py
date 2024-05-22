@@ -14,10 +14,10 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-import shutil
-pathbuild = os.path.abspath('./_build')
-if os.path.exists(pathbuild) :
-    shutil.rmtree(pathbuild)
+# import shutil
+# pathbuild = os.path.abspath('./_build')
+# if os.path.exists(pathbuild) :
+#     shutil.rmtree(pathbuild)
 
 # -- Project information -----------------------------------------------------
 
