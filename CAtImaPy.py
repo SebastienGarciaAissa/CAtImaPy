@@ -587,8 +587,12 @@ def changeValue(value):
             self.ui.camera_exposurems.setValue(self.Camera.exposurems)
             self.ui.camera_gaindB.setValue(self.Camera.gaindB)
             self.ui.Camera__setTriggerModeFunc.setCurrentIndex(self.Camera.triggerMode)
-            self.ui.Imaging__flushSensor.setChecked(self.Camera.cameraConfig['defaultFlushSensor'])
-            self.ui.Imaging__removeBackground.setChecked(self.Camera.cameraConfig['defaultRemoveBackground'])
+            if self.camera_loadDefault :
+                self.ui.Imaging__flushSensor.setChecked(self.Camera.cameraConfig['defaultFlushSensor'])
+                self.ui.Imaging__removeBackground.setChecked(self.Camera.cameraConfig['defaultRemoveBackground'])
+            else : 
+                self.ui.Imaging__flushSensor.stateChanged()
+                self.ui.Imaging__removeBackground.stateChanged()
             self.ui.lcdNumber_camera_pixelCalXumperpx.display(self.Camera.pixelCalXumperpx)
             self.ui.lcdNumber_camera_pixelCalYumperpx.display(self.Camera.pixelCalYumperpx)
             self.ui.lcdNumber_camera_maxLevel.display(self.Camera.maxLevel)
@@ -621,7 +625,7 @@ def changeValue(value):
                 self.ui.imaging_ROIblackNumber.setValue(0)
                 self.ui.imaging_ROIredNumber.setValue(0)
                 self.ui.imaging_ROIgreenNumber.setValue(0)
-            else : 
+            else :
                 newROIindex = np.where(self.Imaging.ROInameTab == self.Camera.cameraConfig['defaultROIkrgnames'][0])[0]
                 if len(newROIindex) > 0 :
                     self.ui.imaging_ROIblackNumber.setValue(self.Imaging.ROIarrayIndexTab[newROIindex[0]]+1)
