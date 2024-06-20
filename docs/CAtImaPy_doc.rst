@@ -7,7 +7,8 @@
 CAtImaPy: Cold-Atom Imaging with a Python GUI
 *********************************************
 
-CAtImaPy provides a graphical user interface (GUI) to acquire, analyze and save series of imaging measurements on cold atomic clouds.
+CAtImaPy provides a graphical user interface (GUI) to acquire, 
+analyze and save series of imaging measurements on cold atomic clouds.
 
 .. image:: images/CAtImaPy_Temperature_MOT.png
 

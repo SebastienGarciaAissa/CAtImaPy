@@ -25,8 +25,7 @@ cameraQuantumEff = 0.31/(2.**2), # include effect of bit shift from pixel format
 numericalAperture = 0.1, # sin(arctan(D/(2f))) 
 Imaging__atomicMassAU = 86.909, #e atom mass in atomic units
 Imaging__atomicFrequencyTHz = 384.23, #transition frequency in THz
-Imaging__crossSectionum2 = 0.2906, #µm²
-Imaging__Isat = 16.06, # W/m²
+Imaging__Isat = 16.693, # W/m² effective saturation intensity : default value
 Imaging__atomicLineFWHWinMHz = 6.066, # Gamma = 2 * pi * Imaging__atomTransitionFWHWinMHz * 10^6 ,   atomic natural linewidth in MHz (full width at half maximum in frequency)
 Imaging__thresholdAbsImg = 30, # minimum measureed intensity (e per pixel) on ref frame to compute the absorption : default value
 Imaging__includeSaturationEffects = True, # add correction due to saturation of atomic response to atomic density : default value
@@ -54,8 +53,7 @@ cameraQuantumEff = 0.32, # at imaging wavelenght
 numericalAperture = 0.1, # sin(arctan(D/(2f)))
 Imaging__atomicMassAU = 86.909, #e atom mass in atomic units
 Imaging__atomicFrequencyTHz = 384.23, #transition frequency in THz
-Imaging__crossSectionum2 = 0.2906, #µm²
-Imaging__Isat = 16.06, # W/m²
+Imaging__Isat = 16.693, # W/m² effective saturation intensity : default value
 Imaging__atomicLineFWHWinMHz = 6.066, # Gamma = 2 * pi * Imaging__atomTransitionFWHWinMHz * 10^6,   atomic natural linewidth in MHz (full width at half maximum in frequency)
 Imaging__thresholdAbsImg = 15, # minimum measureed intensity (e per pixel) on ref frame to compute the absorption : default value
 Imaging__includeSaturationEffects = True, # add correction due to saturation of atomic response to atomic density : default value

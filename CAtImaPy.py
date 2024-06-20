@@ -396,9 +396,13 @@ def changeValue(value):
             self.ui.lcdNumber_camera_numericalAperture.display(self.Imaging.cameraConfig['numericalAperture'])
             self.ui.lcdNumber_imaging_atomicMassAU.display(self.Imaging.cameraConfig['Imaging__atomicMassAU'])
             self.ui.lcdNumber_imaging_atomicFrequencyTHz.display(self.Imaging.cameraConfig['Imaging__atomicFrequencyTHz'])
-            self.ui.lcdNumber_imaging_crossSectionum2.display(self.Imaging.cameraConfig['Imaging__crossSectionum2'])
-            self.ui.lcdNumber_imaging_Isat.display(self.Imaging.cameraConfig['Imaging__Isat'])
             self.ui.lcdNumber_imaging_atomicLineFWHWinMHz.display(self.Imaging.cameraConfig['Imaging__atomicLineFWHWinMHz'])
+            self.ui.Imaging__Isat.setValue(self.Imaging.cameraConfig['Imaging__Isat'])
+            self.ui.Imaging__laserPulseDurationus.setValue(self.Imaging.cameraConfig['Imaging__laserPulseDurationus'])
+            self.ui.Imaging__thresholdAbsImg.setValue(self.Imaging.cameraConfig['Imaging__thresholdAbsImg'])
+            self.ui.Imaging__includeSaturationEffects.setChecked(self.Imaging.cameraConfig['Imaging__includeSaturationEffects'])
+            self.ui.Imaging__laserIntensity.setValue(self.Imaging.cameraConfig['Imaging__laserIntensity'])
+            self.ui.Imaging__laserDetuningMHz.setValue(self.Imaging.cameraConfig['Imaging__laserDetuningMHz'])
             self.ui.imaging_ROIblackNumber.blockSignals(True)
             self.ui.imaging_ROIblackNumber.setValue(self.Imaging.ROIblackTabIndex+1)
             self.ui.imaging_ROIblackNumber.blockSignals(False)
@@ -600,12 +604,11 @@ def changeValue(value):
             self.ui.lcdNumber_camera_numericalAperture.display(self.Camera.cameraConfig['numericalAperture'])
             self.ui.lcdNumber_imaging_atomicMassAU.display(self.Camera.cameraConfig['Imaging__atomicMassAU'])
             self.ui.lcdNumber_imaging_atomicFrequencyTHz.display(self.Camera.cameraConfig['Imaging__atomicFrequencyTHz'])
-            self.ui.lcdNumber_imaging_crossSectionum2.display(self.Camera.cameraConfig['Imaging__crossSectionum2'])
-            self.ui.lcdNumber_imaging_Isat.display(self.Camera.cameraConfig['Imaging__Isat'])
             self.ui.lcdNumber_imaging_atomicLineFWHWinMHz.display(self.Camera.cameraConfig['Imaging__atomicLineFWHWinMHz'])
+            self.ui.Imaging__Isat.setValue(self.Camera.cameraConfig['Imaging__Isat'])
+            self.ui.Imaging__laserPulseDurationus.setValue(self.Camera.cameraConfig['Imaging__laserPulseDurationus'])
             self.ui.Imaging__thresholdAbsImg.setValue(self.Camera.cameraConfig['Imaging__thresholdAbsImg'])
             self.ui.Imaging__includeSaturationEffects.setChecked(self.Camera.cameraConfig['Imaging__includeSaturationEffects'])
-            self.ui.Imaging__laserPulseDurationus.setValue(self.Camera.cameraConfig['Imaging__laserPulseDurationus'])
             self.ui.Imaging__laserIntensity.setValue(self.Camera.cameraConfig['Imaging__laserIntensity'])
             self.ui.Imaging__laserDetuningMHz.setValue(self.Camera.cameraConfig['Imaging__laserDetuningMHz'])
             #set image array 
@@ -1040,7 +1043,7 @@ def changeValue(value):
         if dirAndFileName_loaded:
             self.scriptFilename1 = dirAndFileName_loaded
             self.ui.label_scriptFile1.setText(dirAndFileName_loaded)
-            self.ui.pushButton_reloadRunScript1.setText('Reload and Run: ' + os.path.split(dirAndFileName_loaded)[-1])
+            self.ui.pushButton_reloadRunScript.setText('Reload and Run: ' + os.path.split(dirAndFileName_loaded)[-1])
 
     @QtCore.pyqtSlot()
     def on_pushButton_reloadRunScript_clicked(self):

@@ -10,7 +10,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1465</width>
+    <width>1466</width>
     <height>917</height>
    </rect>
   </property>
@@ -98,7 +98,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1445</width>
+         <width>1446</width>
          <height>885</height>
         </rect>
        </property>
@@ -1718,7 +1718,7 @@
             </column>
             <column>
              <property name="text">
-              <string>Description</string>
+              <string>Name</string>
              </property>
             </column>
             <column>
@@ -1978,7 +1978,7 @@
             <property name="geometry">
              <rect>
               <x>350</x>
-              <y>70</y>
+              <y>100</y>
               <width>51</width>
               <height>20</height>
              </rect>
@@ -2042,7 +2042,7 @@
             <property name="geometry">
              <rect>
               <x>230</x>
-              <y>70</y>
+              <y>100</y>
               <width>121</width>
               <height>21</height>
              </rect>
@@ -2058,7 +2058,7 @@
             <property name="geometry">
              <rect>
               <x>260</x>
-              <y>40</y>
+              <y>70</y>
               <width>171</width>
               <height>21</height>
              </rect>
@@ -2087,7 +2087,7 @@
             <property name="geometry">
              <rect>
               <x>430</x>
-              <y>40</y>
+              <y>70</y>
               <width>21</width>
               <height>91</height>
              </rect>
@@ -2100,7 +2100,7 @@
             <property name="geometry">
              <rect>
               <x>480</x>
-              <y>40</y>
+              <y>70</y>
               <width>171</width>
               <height>21</height>
              </rect>
@@ -2116,7 +2116,7 @@
             <property name="geometry">
              <rect>
               <x>400</x>
-              <y>70</y>
+              <y>100</y>
               <width>41</width>
               <height>21</height>
              </rect>
@@ -2128,49 +2128,17 @@
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
-           <widget class="QLabel" name="label_160">
-            <property name="geometry">
-             <rect>
-              <x>480</x>
-              <y>200</y>
-              <width>91</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Cross section</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_162">
-            <property name="geometry">
-             <rect>
-              <x>640</x>
-              <y>200</y>
-              <width>61</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>µm²</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_163">
             <property name="geometry">
              <rect>
-              <x>240</x>
-              <y>200</y>
-              <width>111</width>
+              <x>250</x>
+              <y>40</y>
+              <width>181</width>
               <height>21</height>
              </rect>
             </property>
             <property name="text">
-             <string>Saturation Intensity</string>
+             <string>Effective saturation Intensity</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -2179,8 +2147,8 @@
            <widget class="QLabel" name="label_164">
             <property name="geometry">
              <rect>
-              <x>430</x>
-              <y>200</y>
+              <x>520</x>
+              <y>40</y>
               <width>41</width>
               <height>21</height>
              </rect>
@@ -2196,7 +2164,7 @@
             <property name="geometry">
              <rect>
               <x>430</x>
-              <y>170</y>
+              <y>200</y>
               <width>41</width>
               <height>21</height>
              </rect>
@@ -2212,29 +2180,13 @@
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>170</y>
+              <y>200</y>
               <width>111</width>
               <height>21</height>
              </rect>
             </property>
             <property name="text">
              <string>Atomic frequency</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_167">
-            <property name="geometry">
-             <rect>
-              <x>450</x>
-              <y>140</y>
-              <width>231</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Isat and sigma are effective quantities</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -2260,7 +2212,7 @@
             <property name="geometry">
              <rect>
               <x>470</x>
-              <y>170</y>
+              <y>200</y>
               <width>111</width>
               <height>21</height>
              </rect>
@@ -2276,7 +2228,7 @@
             <property name="geometry">
              <rect>
               <x>650</x>
-              <y>170</y>
+              <y>200</y>
               <width>41</width>
               <height>21</height>
              </rect>
@@ -2292,7 +2244,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>120</y>
+              <y>150</y>
               <width>181</width>
               <height>21</height>
              </rect>
@@ -2311,7 +2263,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>60</y>
+              <y>90</y>
               <width>201</width>
               <height>21</height>
              </rect>
@@ -2330,7 +2282,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>90</y>
+              <y>120</y>
               <width>201</width>
               <height>21</height>
              </rect>
@@ -2349,7 +2301,7 @@
             <property name="geometry">
              <rect>
               <x>570</x>
-              <y>170</y>
+              <y>200</y>
               <width>71</width>
               <height>20</height>
              </rect>
@@ -2377,7 +2329,7 @@
             <property name="geometry">
              <rect>
               <x>360</x>
-              <y>170</y>
+              <y>200</y>
               <width>71</width>
               <height>20</height>
              </rect>
@@ -2401,39 +2353,11 @@
              <number>0</number>
             </property>
            </widget>
-           <widget class="QLCDNumber" name="lcdNumber_imaging_Isat">
-            <property name="geometry">
-             <rect>
-              <x>370</x>
-              <y>200</y>
-              <width>61</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="smallDecimalPoint">
-             <bool>false</bool>
-            </property>
-            <property name="digitCount">
-             <number>5</number>
-            </property>
-            <property name="mode">
-             <enum>QLCDNumber::Dec</enum>
-            </property>
-            <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
-            </property>
-            <property name="value" stdset="0">
-             <double>0.000000000000000</double>
-            </property>
-            <property name="intValue" stdset="0">
-             <number>0</number>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_185">
             <property name="geometry">
              <rect>
-              <x>220</x>
-              <y>140</y>
+              <x>350</x>
+              <y>170</y>
               <width>231</width>
               <height>21</height>
              </rect>
@@ -2443,34 +2367,6 @@
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLCDNumber" name="lcdNumber_imaging_crossSectionum2">
-            <property name="geometry">
-             <rect>
-              <x>580</x>
-              <y>200</y>
-              <width>61</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="smallDecimalPoint">
-             <bool>false</bool>
-            </property>
-            <property name="digitCount">
-             <number>5</number>
-            </property>
-            <property name="mode">
-             <enum>QLCDNumber::Dec</enum>
-            </property>
-            <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
-            </property>
-            <property name="value" stdset="0">
-             <double>0.000000000000000</double>
-            </property>
-            <property name="intValue" stdset="0">
-             <number>0</number>
             </property>
            </widget>
            <widget class="QLabel" name="label_182">
@@ -2534,7 +2430,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>180</y>
+              <y>220</y>
               <width>211</width>
               <height>21</height>
              </rect>
@@ -2556,7 +2452,7 @@
             <property name="geometry">
              <rect>
               <x>640</x>
-              <y>70</y>
+              <y>100</y>
               <width>41</width>
               <height>21</height>
              </rect>
@@ -2572,7 +2468,7 @@
             <property name="geometry">
              <rect>
               <x>460</x>
-              <y>70</y>
+              <y>100</y>
               <width>131</width>
               <height>21</height>
              </rect>
@@ -2588,7 +2484,7 @@
             <property name="geometry">
              <rect>
               <x>580</x>
-              <y>70</y>
+              <y>100</y>
               <width>61</width>
               <height>22</height>
              </rect>
@@ -2663,7 +2559,7 @@
              </rect>
             </property>
             <property name="text">
-             <string>Natural Linewidth FWHM</string>
+             <string>Natural linewidth FWHM</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -2673,7 +2569,7 @@
             <property name="geometry">
              <rect>
               <x>660</x>
-              <y>100</y>
+              <y>130</y>
               <width>31</width>
               <height>21</height>
              </rect>
@@ -2689,7 +2585,7 @@
             <property name="geometry">
              <rect>
               <x>590</x>
-              <y>100</y>
+              <y>130</y>
               <width>71</width>
               <height>22</height>
              </rect>
@@ -2717,7 +2613,7 @@
             <property name="geometry">
              <rect>
               <x>440</x>
-              <y>100</y>
+              <y>130</y>
               <width>151</width>
               <height>21</height>
              </rect>
@@ -2733,7 +2629,7 @@
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>120</y>
+              <y>150</y>
               <width>461</width>
               <height>20</height>
              </rect>
@@ -2765,7 +2661,7 @@
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>30</y>
+              <y>60</y>
               <width>461</width>
               <height>20</height>
              </rect>
@@ -2778,13 +2674,70 @@
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>100</y>
+              <y>130</y>
               <width>171</width>
               <height>21</height>
              </rect>
             </property>
             <property name="text">
              <string>Laser is assumed resonant</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="Imaging__Isat">
+            <property name="geometry">
+             <rect>
+              <x>440</x>
+              <y>40</y>
+              <width>71</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="locale">
+             <locale language="English" country="UnitedStates"/>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>16.693000000000001</double>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_217">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>211</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Display options :</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_218">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>190</y>
+              <width>211</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Atom number option :</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -5733,9 +5686,9 @@
            <widget class="QCheckBox" name="saveload_SaveAnalysisGraphPic">
             <property name="geometry">
              <rect>
-              <x>230</x>
+              <x>250</x>
               <y>130</y>
-              <width>201</width>
+              <width>241</width>
               <height>21</height>
              </rect>
             </property>
@@ -5743,7 +5696,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Save Picture of Analysis Graph</string>
+             <string>Save picture of right graph (Analysis)</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -5752,9 +5705,9 @@
            <widget class="QCheckBox" name="saveload_SaveImagePic">
             <property name="geometry">
              <rect>
-              <x>20</x>
+              <x>10</x>
               <y>130</y>
-              <width>201</width>
+              <width>221</width>
               <height>21</height>
              </rect>
             </property>
@@ -5762,7 +5715,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Save Picture of 2D data plot</string>
+             <string>Save picture of left graph (Image)</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -5806,7 +5759,7 @@
            <widget class="QCheckBox" name="saveload_SaveAtomicDensity">
             <property name="geometry">
              <rect>
-              <x>460</x>
+              <x>510</x>
               <y>130</y>
               <width>201</width>
               <height>21</height>
@@ -5816,7 +5769,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>Save last Atomic density</string>
+             <string>Save last atomic density</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -5923,7 +5876,7 @@
             <property name="geometry">
              <rect>
               <x>20</x>
-              <y>90</y>
+              <y>100</y>
               <width>751</width>
               <height>21</height>
              </rect>
@@ -5958,10 +5911,10 @@
            <widget class="QPushButton" name="pushButton_closeFigures">
             <property name="geometry">
              <rect>
-              <x>490</x>
-              <y>130</y>
-              <width>121</width>
-              <height>31</height>
+              <x>250</x>
+              <y>170</y>
+              <width>201</width>
+              <height>41</height>
              </rect>
             </property>
             <property name="text">
@@ -5972,7 +5925,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>110</y>
+              <y>130</y>
               <width>651</width>
               <height>20</height>
              </rect>

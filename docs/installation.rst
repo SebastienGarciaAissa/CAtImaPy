@@ -5,7 +5,7 @@ Installation
 Requirements
 ============
 
-The basic requirements are :
+The basic requirements are:
 
 * `Python 3 <https://docs.python.org/3>`_ to run the code with the following packages included,
 
@@ -41,7 +41,7 @@ The next step is to setup the driver for your camera(s).
 Below, you will find a generic description of the steps to get a camera driver settled in CAtImaPy. 
 Precise instructions, depending on the camera manufacturer, are available in section :ref:`Camera-drivers`.
 
-#.  The control of a camera uses a library of funcions (driver) defined and written by the manufacturer. 
+#.  The control of a camera uses a library of functions (driver) defined and written by the manufacturer. 
     The first step is then to install the driver.
     Most of the time, this means installing the software development kit (SDK) provided by the manufacturer on its website.
     
@@ -52,14 +52,14 @@ Precise instructions, depending on the camera manufacturer, are available in sec
         * some implemented drivers rely on a python package provided by the manufacturer. It could also be written by a third party or you, if needed.
         
         * most of implemented drivers use the amazing `PyLabLib <https://pylablib.readthedocs.io/en/latest/>`_ package developed by Alexey Shkarin. 
-          This software is a python package for controlling lab equipement in general. 
+          This software is a python package for controlling lab equipment in general. 
           We use here its control of cameras because most of scientific cameras are controllable via PyLabLib. 
         
         .. note::
             Alexey Shkarin also developed a separate, stand-alone software `PyLabLib cam-control <https://pylablib-cam-control.readthedocs.io/en/latest/>`_
             for universal camera control and frames acquisition with a convenient GUI. 
     
-#.  The final layer for camera control are CAtImaPy specific drivers located in *Cameras* folder.
+#.  The final layer for camera control is CAtImaPy specific drivers located in *Cameras* folder.
     Using the previous layer of python drivers, these drivers provide a unified interface for the rest of the code 
     (details in section :ref:`Cameras-code`, if you are interested).
     CAtImaPy implement generic drivers classes for camera operated via a given manufacturer's driver. 
@@ -72,115 +72,124 @@ Precise instructions, depending on the camera manufacturer, are available in sec
     Examples of basic inherited model classes are given in section :ref:`Model-Camera-classes`.
 
 
+.. _Configuring-camera-and-acquisition-parameters:
+
 Configuring camera and acquisition parameters
 ==============================================
 
 The last step before launching the program is to configure the parameters of your camera(s). 
 
 To do so, open file *Cameras\Config.py* in an editor. 
-This file only contains the definition of ``camerasConfigs`` : a list of dictionnaries each configuring one camera. 
+This file only contains the definition of ``camerasConfigs``: a list of dictionaries each configuring one camera. 
 Leave the first element of the list (index 0) as :py:const:`None` because Camera 0 indicates that no actual camera is connected (at start or if connection fails). 
 
-Go to the dictionnary defintion at list index 1, below the commented line ::
+Go to the dictionary definition at list index 1, below the commented line ::
     
     # Camera number 1
 
 And modify the variables values after the = signs to match the ones of your camera. 
-The variables are listed below with their key (name of dictionnary variable in python), the expected value type, their meaning and their use :
+The variables are listed below with their key (name of dictionary variable in python), 
+the expected value type, their meaning and their use:
 
-* name (:py:class:`str`) : Name chosen by user. Only used to reckonize camera number in the list of configured cameras.
+* name (:py:class:`str`): Name chosen by user. Only used to recognize camera number in the list of configured cameras.
 
-* driver (:py:class:`str`) : Driver name has to be the name of a file *<driver>.py* in *Cameras* folder, and is related to a given manufacturer's driver. 
+* driver (:py:class:`str`): Driver name has to be the name of a file *<driver>.py* in *Cameras* folder, and is related to a given manufacturer's driver. 
   Used to find the python class controlling the camera.
 
-* model (:py:class:`str`) : Model name has to be the name of class ``<model>Class`` defined in <driver>.py file.
+* model (:py:class:`str`): Model name has to be the name of class ``<model>Class`` defined in <driver>.py file.
   Used to load specific child class (if :py:const:`None` or not matching  use generic ``<driver>Class``).
 
-* serial (:py:class:`int` or :py:class:`str`) : Serial number of the camera (or for some drivers the camera index). 
+* serial (:py:class:`int` or :py:class:`str`): Serial number of the camera (or for some drivers the camera index). 
   Used to identify the camera at connection.
 
-* imageBitDepth (:py:class:`int`) : Set bit depth of sensor reading. 
+* imageBitDepth (:py:class:`int`): Set bit depth of sensor reading. 
   Used to set the format of image transfered by the camera to the computer. 
   Only if the driver allows it, otherwise the format is set automatically according to camera.
                  
-* defaultExposurems (:py:class:`float`) : Default duration of exposition (exposure) in milliseconds.
+* defaultExposurems (:py:class:`float`): Default duration of exposition (exposure) in milliseconds.
   Used at each camera connection for initial configuration of the camera if "Load camera default from config" is checked.
 
-* defaultGaindB (:py:class:`float`) : Default hardware gain (amplification) at sensor read in dB, if gain is avaible for this camera.
+* defaultGaindB (:py:class:`float`): Default hardware gain (amplification) at sensor read in dB, if gain is avaible for this camera.
   Used at each camera connection for initial configuration of the camera if "Load camera default from config" is checked.
 
-* defaultTrigger ('external' or 'software') : Default input for triggering the camera.
+* defaultTrigger ('external' or 'software'): Default input for triggering the camera.
   Used at each camera connection for initial configuration of the camera if "Load camera default from config" is checked.
   Normally should be 'external' to trigger on digital signal rising up provided by hardware used for experiment control.
 
-* defaultCamROI (:py:const:`None` or [:py:class:`int`]*4) : Camera region of interest to read from sensor : 
-  None for full senseor or [x offset , y offset , x size , y size ] in pixels (binning is not implemented so far).
+* defaultCamROI (:py:const:`None` or [:py:class:`int`]*4): Camera region of interest to read from sensor : 
+  None for full sensor or [x offset , y offset , x size , y size ] in pixels (binning is not implemented so far).
   This parameter can only be changed via ``camerasConfigs`` (not yet implemented in the GUI).
 
-* defaultFlushSensor (:py:class:`bool`) : Default setting to decide if each image acquisition is preceded by a flush read of the camera,
+* defaultFlushSensor (:py:class:`bool`): Default setting to decide if each image acquisition is preceded by a flush read of the camera,
   to remove accumulated charges on sensor. 
   Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
 
-* defaultRemoveBackground (:py:class:`bool`) : Default setting to decide if a background image is taken and removed to the previous one(s),
+* defaultRemoveBackground (:py:class:`bool`): Default setting to decide if a background image is taken and removed to the previous one(s),
   at the end of a cold-atom imaging cycle.
   Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
   
-* defaultROIkrgnames  ([:py:class:`str`]*3) : Names of analysis ROIs that the code try to find in the ROI array 
+* defaultROIkrgnames  ([:py:class:`str`]*3): Names of analysis ROIs that the code try to find in the ROI array 
   and select as the [black, red, green] imaging ROIs used to show results.
   Used at first camera connection (or reconnection if another camera was used previously).
 
-* pixelCalXumperpx (:py:class:`float`) : Calibration of width of a pixel in the object plane in micrometers.
+* pixelCalXumperpx (:py:class:`float`): Calibration of width :math:`w_{\mathrm{px}}` of a pixel in the object plane in micrometers.
 
-* pixelCalYumperpx (:py:class:`float`) : Calibration of height of a pixel in the object plane in micrometers.
+* pixelCalYumperpx (:py:class:`float`): Calibration of height :math:`h_{\mathrm{px}}` of a pixel in the object plane in micrometers.
   
-* reversedAxes ([:py:class:`bool`]*2) :  Decide if for each axis [X,Y], if it will be reversed. 
-  This allows you to swap the images axes the way you like ; for example to get the atoms falling to the bottom of the image. 
+* reversedAxes ([:py:class:`bool`]*2):  Decide if for each axis [X,Y], if it will be reversed. 
+  This allows you to swap the images axes the way you like; for example, to get the atoms falling to the bottom of the image. 
   
-* cameraQuantumEff (:py:class:`float`) :  Quantum efficiency of the camera (or effective efficiency if sets bit depth limits the format).
-  Used to calculate the number of photon per pixel from the number of recorded electrons. This allows to know the absolute intensity reaching the sensor.
+* cameraQuantumEff (:py:class:`float`):  Quantum efficiency :math:`\eta_{\mathrm{QE}}` of the camera (or effective efficiency if sets bit depth limits the format).
+  Used to calculate the number of photons per pixel from the number of recorded electrons. This allows to know the absolute intensity reaching the sensor.
   The absolute intensity is used in fluorescence imaging to calculate the atomic density, 
   and in absorption imaging to calculate the correction to the atomic density due to the saturation of the transition.
    
-* numericalAperture (:py:class:`float`) : The numerical aperture of your imaging system on the object side, typically :math:`\sin(\arctan(D/2f))`
+* numericalAperture (:py:class:`float`): The numerical aperture of your imaging system on the object side, typically :math:`\sin(\arctan(D/2f))`
   with  :math:`f` and :math:`D` the focal and the diameter of the clear aperture of your first lens, respectively. 
   Used in fluorescence imaging to calculate the atomic density.
 
-* Imaging__atomicMassAU (:py:class:`float`) : The mass of the atom in atomic units.
+* Imaging__atomicMassAU (:py:class:`float`): The mass of the atom in atomic units.
   Used to calculate temperature after time-of-flight measurements.
   
-* Imaging__atomicFrequencyTHz (:py:class:`float`) : The frequency in THz of the transition used for imaging.
+* Imaging__atomicFrequencyTHz (:py:class:`float`): The frequency in THz :math:`f \times 10^{-12}` of the transition used for imaging.
   Used in absorption imaging to calculate the correction to the atomic density due to the saturation of the transition.
 
-* Imaging__crossSectionum2 (:py:class:`float`) : The cross section in µm² of the transition used for imaging.
-  Used in absorption imaging to calculate the atomic density.
+* Imaging__Isat (:py:class:`float`): The effective saturation intensity :math:`I_{\mathrm{sat}}` in W/m² (or µW/mm²) of the transition used for imaging.
+  Used in fluorescence and absorption imagings to calculate the atomic density.
+  This effective value allows one to take into account the actual average transition dipole moment in the imaging configuration.
+  The effective saturation intensity can be set properly to its actual value by ensuring 
+  that the imaging results are independent of laser intensity.
+  Unless the operator ensures that the imaging is performed in ideal "two-level-atom" conditions 
+  (using the closed transition with the right polarization and magnetic field), 
+  the effective saturation intensity will be larger than the one of the closed transition. 
+  Used at each camera connection for initial configuration of this imaging parameter
 
-* Imaging__Isat (:py:class:`float`) : The saturation intensity in W/m² (or µW/mm²) of the transition used for imaging.
-  Used in fluorescence imaging to calculate the atomic density, 
-  and in absorption imaging to calculate the correction to the atomic density due to the saturation of the transition.
-
-* Imaging__atomicLineFWHWinMHz (:py:class:`float`) : The atomic natural linewidth in MHz (full width at half maximum in frequency) 
+* Imaging__atomicLineFWHWinMHz (:py:class:`float`): The atomic natural linewidth in MHz (full width at half maximum in frequency) 
   of the transition used for imaging.
-  Used to calculate the population decay rate of the excited state as :math:`\Gamma = 2 \pi \times 10^{6} \times` Imaging__atomTransitionFWHWinMHz.   
-  Used in fluorescence imaging to calculate the atomic density.
+  Used to calculate the coherence (dipole) decay rate of the excited state as :math:`\gamma = \pi \times 10^{6} \times` Imaging__atomTransitionFWHWinMHz.   
+  Used in fluorescence and absorption imaging to calculate the atomic density.
 
-* Imaging__thresholdAbsImg (:py:class:`int`) : The minimum measured intensity (in electrons per pixel) on reference frame (without atoms)
+* Imaging__thresholdAbsImg (:py:class:`int`): The minimum measured intensity (in electrons per pixel) on reference frame (without atoms)
   in absorption imaging to calculate the atomic density. Below the threshold, the atomic density is set to zero.
   Used at each camera connection for initial configuration of this imaging parameter.
   
-* Imaging__includeSaturationEffects (:py:class:`bool`) : Decide to include saturation of atomic response to calculate atomic density. 
+* Imaging__includeSaturationEffects (:py:class:`bool`): Decide to include saturation of atomic response to calculate atomic density. 
   If :py:const:`False`, this is equivalent of setting saturation intensity to infinity.
   Used at each camera connection for initial configuration of this imaging parameter.
 
-* Imaging__laserPulseDurationus (:py:class:`float`) :  The duration of laser pulse used for imaging in µs. Used to calculate atomic density.
+* Imaging__laserPulseDurationus (:py:class:`float`):  The duration of laser pulse used for imaging in µs. Used to calculate atomic density.
   Used at each camera connection for initial configuration of this imaging parameter. 
 
-* Imaging__laserIntensity (:py:class:`float`) : The intensity of the laser used for fluorescence imaging in W/m² (or µW/mm²).
+* Imaging__laserIntensity (:py:class:`float`): The intensity of the laser used for fluorescence imaging in W/m² (or µW/mm²).
   Used at each camera connection for initial configuration of this imaging parameter.
 
-* Imaging__laserDetuningMHz (:py:class:`float`) : The detunning in MHz from resonance of the laser used for for fluorescence imaging.
+* Imaging__laserDetuningMHz (:py:class:`float`): The detuning in MHz from resonance of the laser used for for fluorescence imaging.
   Used at each camera connection for initial configuration of this imaging parameter.
 
 
+If you have more than one camera, define new dictionaries as index 2,... of ``camerasConfigs``.
+
+Any change in this *Config.py* file will only take effect after saving the file followed by a restart of CAtImaPy.
 
 After setting the camera configuration(s), you can now use CAtImaPy with a guide provided by section :ref:`Description-and-Use`.
 

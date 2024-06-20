@@ -80,8 +80,7 @@ class ImagingClass():
         self.imRef = np.zeros((1,1), dtype=self.imageDtype) # image reference without atoms for absorption
         self.imBkgd = np.zeros((1,1), dtype=self.imageDtype) # image of background (without atoms nor imaging light)
         #define variables for imaging
-        self.crossSectionum2 = 0.2906 #value (um^2) of cross section for the aborption imaging here, set in config file
-        self.Isat = 16.69 # value (W.m^-2) of saturation intensity for the aborption imaging here, set in config file
+        self.Isat = 16.69 # value (W.m^-2) of effective saturation intensity for the aborption imaging here, set in config file
         self.cameraQuantumEff = 0.31/4 # quantum efficiency of the sensor at atomic frequency
         self.numericalAperture = 0.1 # numerical aperture of the imaging system
         self.hplanck = 6.62607e-34
@@ -92,12 +91,13 @@ class ImagingClass():
         self.includeSaturationEffects = True # add correction due to saturation of atomic response to atomic density
         # define variables for absorption
         self.thresholdAbsImg = 1 # threshold value for absorption
-        self.coeffAbsStrongSatcalc = 0. # self.coeffAbsStrongSatcalc = self.hplanck*self.atomicFrequencyTHz*1.e+12 /(self.pixelCalAreaum2*1.e-12*self.cameraQuantumEff*self.Isat*self.laserPulseDurationus*1.e-6)
+        self.crossSectionum2 = 0.2906 # effective value (um^2) of cross section  = 1e+12*self.hplanck*self.atomicFrequencyTHz*1.e+12*self.atomicgamma / self.Isat
+        self.coeffAbsStrongSatcalc = 0. # float(self.includeSaturationEffects) / self.atomicgamma / (self.pixelCalAreaum2 * self.cameraQuantumEff *self.laserPulseDurationus*1.e-6 )
         self.ODe = np.zeros((1,1)) # OD defined by ln(imAt/Iref)
         # define varaibles for Fluo
         self.laserIntensity = 1. # in W/m² 
         self.laserDetuningMHz = 0. # detuning from resonance in MHz
-        self.rateScattFluoPerAtom = 1. #self.atomicgamma *(self.laserIntensity/self.Isat)/(1 + (self.laserIntensity/self.Isat) + (4*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
+        self.rateScattFluoPerAtom = 1. #self.atomicgamma *(self.laserIntensity/self.Isat)/(1 + (self.laserIntensity/self.Isat) + (2*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
         self.coeffFluoCalc = 1. #2./( (1-np.sqrt(1-self.numericalAperture**2)) *self.cameraQuantumEff*self.laserPulseDurationus*1.e-6*self.rateScattFluoPerAtom*self.pixelCalAreaum2)
         self.Fluo = np.zeros((1,1)) # Fluo image defined by I-Iref
         #define variables for Temperature measurement
@@ -285,21 +285,21 @@ class ImagingClass():
         self.numericalAperture = self.cameraConfig['numericalAperture']        
         self.atomicMassAU = self.cameraConfig['Imaging__atomicMassAU']
         self.atomicFrequencyTHz = self.cameraConfig['Imaging__atomicFrequencyTHz']
-        self.crossSectionum2 = self.cameraConfig['Imaging__crossSectionum2']
         self.Isat = self.cameraConfig['Imaging__Isat']
         self.atomicLineFWHWinMHz = self.cameraConfig['Imaging__atomicLineFWHWinMHz']  # atomic natural linewidth in MHz (full width at half maximum in frequency)
-        self.atomicgamma = np.pi * self.atomicLineFWHWinMHz * 1.0e+6 # gamma = Gamma/2
+        self.atomicgamma = np.pi * self.atomicLineFWHWinMHz * 1.0e+6 # gamma = Gamma/2 : coherence/dipole decay
         self.atomicDensityIntZperum2 = np.zeros(self.imageSize)# atomic density integrated along camera axis : calculated from images, unit atoms/µm²      
         self.atomicDensityIntZperum2Av = np.zeros(self.imageSize)
         # define variables for absorption
-        self.coeffAbsStrongSatcalc = self.hplanck*self.atomicFrequencyTHz*1.e+12 \
-                                    /(self.pixelCalAreaum2*1.e-12*self.cameraQuantumEff*self.Isat*self.laserPulseDurationus*1.e-6)
+        self.crossSectionum2 = 1e+12*self.hplanck*self.atomicFrequencyTHz*1.e+12*self.atomicgamma / self.Isat
+        self.coeffAbsStrongSatcalc = float(self.includeSaturationEffects) / self.atomicgamma \
+                                      / (self.pixelCalAreaum2 * self.cameraQuantumEff * self.laserPulseDurationus*1.e-6 )
         self.ODe = np.zeros(self.imageSize) # OD defined by ln(imAt/Iref)
         self.ODeAv = np.zeros(self.imageSize) # OD average defined by ln(imAt/Iref)  
         # define varaibles for Fluo
         self.rateScattFluoPerAtom = self.atomicgamma *(self.laserIntensity/self.Isat)\
                                         /(1 + (self.laserIntensity/self.Isat) \
-                                            + (4*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
+                                            + (2*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
         self.coeffFluoCalc = 2./( (1-np.sqrt(1-self.numericalAperture**2)) *self.cameraQuantumEff\
                                         *self.laserPulseDurationus*1.e-6\
                                         *self.rateScattFluoPerAtom*self.pixelCalAreaum2)
@@ -338,7 +338,7 @@ class ImagingClass():
     def print_dict_full(self, d, indentation=0):
         """ Returns a string representation of the content of a dictionary for saving.
         
-            No line limits, arrays limited to 200 elements
+            No line limits, arrays limited to 10000 elements
         
         Args: 
             d (dict) : dictionary to print
@@ -357,7 +357,7 @@ class ImagingClass():
                 s += s0+'\n'
                 s += self.print_dict_full(v, indentation+2)
             elif type(v) == type(np.zeros((10,10))):
-                if np.size(v) < 200 :
+                if np.size(v) < 10000 :
                     s += s0 + str(v) + '\n'
                 else :
                     s += s0 + 'Array too large be printed \n'
@@ -770,14 +770,14 @@ class ImagingClass():
         """
         if self.imagingType == 0 : #absorption
             self.ODeAv *= 0.
-            self.coeffAbsStrongSatcalc = float(self.includeSaturationEffects)*self.hplanck*self.atomicFrequencyTHz*1.e+12 \
-                                    /(self.pixelCalAreaum2*1.e-12*self.cameraQuantumEff*self.Isat\
-                                        *self.laserPulseDurationus*1.e-6)
+            self.crossSectionum2 = 1e+12*self.hplanck*self.atomicFrequencyTHz*1.e+12*self.atomicgamma / self.Isat
+            self.coeffAbsStrongSatcalc = float(self.includeSaturationEffects) / self.atomicgamma \
+                                          / (self.pixelCalAreaum2 * self.cameraQuantumEff * self.laserPulseDurationus*1.e-6 )
         else : #fluorescence
             self.FluoAv *= 0.
             self.rateScattFluoPerAtom = self.atomicgamma *(self.laserIntensity/self.Isat)\
                                         /(1 + (self.laserIntensity/self.Isat)*float(self.includeSaturationEffects) \
-                                            + (4*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
+                                            + (2*self.laserDetuningMHz/self.atomicLineFWHWinMHz)**2 )
             self.coeffFluoCalc = 2./( (1-np.sqrt(1-self.numericalAperture**2)) *self.cameraQuantumEff\
                                         *self.laserPulseDurationus*1.e-6\
                                         *self.rateScattFluoPerAtom*self.pixelCalAreaum2)
@@ -832,12 +832,12 @@ class ImagingClass():
                 #calulate ODe sum for average
                 self.ODe = - np.log(np.where(self.imAt==0, np.ones(self.imAt.shape), self.imAt.astype(np.float)))\
                                 + np.log(np.where(self.imRef==0, np.ones(self.imRef.shape), self.imRef.astype(np.float)))
-                self.ODe[self.imRef<self.thresholdAbsImg]=0.
+                self.ODe[self.imRef<self.thresholdAbsImg] = 0.
                 self.ODeAv += self.ODe
                 #calculate atomic density sum with strong saturation part 
-                self.atomicDensityIntZperum2 = (self.ODe + (self.imRef.astype(np.float)-self.imAt.astype(np.float))*self.coeffAbsStrongSatcalc) \
-                                                        /self.crossSectionum2
-                self.atomicDensityIntZperum2[self.imRef<self.thresholdAbsImg]=0.
+                self.atomicDensityIntZperum2 = self.ODe / self.crossSectionum2 \
+                                                + (self.imRef.astype(np.float)-self.imAt.astype(np.float))*self.coeffAbsStrongSatcalc     
+                self.atomicDensityIntZperum2[self.imRef<self.thresholdAbsImg] = 0.
             else : #fluorescence
                 self.Fluo = self.imAt.astype(np.float)
                 self.FluoAv += self.Fluo
