@@ -70,7 +70,7 @@ intersphinx_disabled_domains = ['std']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The master toctree document.
-master_doc = 'CAtImaPy_doc'
+master_doc = 'index'
 
 
 # -- Options for HTML output -------------------------------------------------
