@@ -171,7 +171,43 @@ class AndorSDK2Class(PylablibInterfaceClass) :
 
 
 
-
+class ExampleModelClass(AndorSDK2Class) :
+    """Model-specific class for ... Andor SDK2 camera using pylablib python driver.
+    
+        Child Class of AndorSDK2Class. 
+        Use to implement specific initialization for this camera model"""
+        
+    def __init__(self, cameraNumber, triggerMode=0, exposurems=1, 
+                 gaindB=1, camROI=None, loadDefault = False) :	
+        """Initialize the Camera object 
+        
+        Args:
+            cameraNumber (int) : index of camera in camerasConfigs list
+            
+        Keyword Args:
+            triggerMode=0  (int) : 0 for hardware/external, 1 for software/internal
+            
+            exposurems=1. (float) : Exposition duration (exposure) in ms.
+            
+            gaindB=0. (float) : hardware gain of the camera in dB.
+            
+            camROI=None (None or [int]*4) : Camera region of interest to read from sensor
+                [x offset , y offset , x size , y size ] (binning is not implemented)
+            
+            loadDefault = True  (bool): Decide if default values from cameraConfigs should be set at creation 
+                        
+        Return: 
+            ExampleModelClass camera object
+        """
+        super().__init__(cameraNumber, triggerMode=triggerMode, exposurems=exposurems,
+                          gaindB=gaindB, camROI=camROI, loadDefault=loadDefault)
+        
+    
+    def __del__(self) : 
+        """Delete the Camera object by calling close function
+        
+        Close the Camera and free memory"""
+        super().__del__() #ALWAYS call at end of any child class del
 
 
 

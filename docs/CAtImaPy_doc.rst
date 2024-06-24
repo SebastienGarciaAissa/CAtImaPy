@@ -12,7 +12,9 @@ analyze and save series of imaging measurements on cold atomic clouds.
 
 .. image:: images/CAtImaPy_Temperature_MOT.png
 
-
+.. note::
+   CAtImaPy is a free software under GNU General Public Licence version 3.
+   CAtImaPy comes without any waranty, in particular on its results or its maintenance. 
 
 Contents
 ==================

@@ -34,7 +34,9 @@ Alternatively (in particular if you want to contribute), you can use Git to clon
     git clone https://github.com/SebastienGarciaAissa/CAtImaPy
 
 
-Installing Camera drivers
+.. _Installing-camera-drivers:
+
+Installing camera drivers
 =========================
 
 The next step is to setup the driver for your camera(s). 
@@ -61,11 +63,12 @@ Precise instructions, depending on the camera manufacturer, are available in sec
     
 #.  The final layer for camera control is CAtImaPy specific drivers located in *Cameras* folder.
     Using the previous layer of python drivers, these drivers provide a unified interface for the rest of the code 
-    (details in section :ref:`Cameras-code`, if you are interested).
+    (details in section :ref:`Cameras-code`).
     CAtImaPy implement generic drivers classes for camera operated via a given manufacturer's driver. 
     Theses CAtImaPy's drivers are python classes ``<Driver name>Class`` defined in *<Driver name>.py* files in *Cameras* directory. 
     
-    These generic driver classes are intended to be used as a parent class for model specific classes ``<Model name>Class`` defined in the same file.
+    These generic driver classes are intended to be used as a parent class 
+    for model specific classes ``<Model name>Class`` defined in the same file.
     When implementing a new camera model for your application, I recommend creating such a model class. 
     The model class will allow to implement a customizable initialization procedure for the given camera model. 
     Even if you do not need this at start, it may come useful at some point latter. 

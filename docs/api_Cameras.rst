@@ -19,7 +19,9 @@ The creation of the ``Camera`` object, attribute of ``mainWin``, is realized by 
 :func:`create_Camera` selects the child class for the specified driver (manufacturer API) and model,
 as given by keys 'driver' and 'model' in ``camerasConfigs``.
 Ideally, the creator should load a child class for the specified model with proper initialization of this model. 
-The model classes are inherited from the driver class and defined in the same file, named *<driver name>.py*.
+The model classes ``<Model name>Class`` are inherited from the driver class ``<Driver name>Class``, 
+defined in *<Driver name>.py* file in *Cameras* directory.
+The model classes are defined in the same file. 
 If no model class is defined, the creator loads the generic driver class. 
 
 
@@ -34,9 +36,12 @@ Available driver classes are listed below in section :ref:`Driver-Camera-classes
 Model camera classes are the way for the user to properly initialize the camera.
 Indeed, if the generic driver class may work, the different camera models often have different available options or properties.
 In order to set all the parameters optimally the user should define a model class. 
-Even in the case where the driver class is working, the user should preferably define a model class simply inheriting everything from the driver class.
+Even in the case where the driver class is working, 
+the user should preferably define a model class simply inheriting everything from the driver class.
 This should avoid future conflicts if other camera models with the same driver need to be added. 
-Two examples of model classes are given below in section :ref:`Model-Camera-classes`.
+The  *<Driver name>.py* file contains the definition of a ``ExampleModelClass``,
+that you can copy to make your model ``<Model name>Class`` by changing its name (and docstring). 
+Two examples of properly defined model classes are given below in section :ref:`Model-Camera-classes`. 
 
 
 Base Camera class
@@ -100,8 +105,10 @@ Pylablib-based driver classes
 
 .. _Model-Camera-classes:
 
-Examples of model Camera classes
-================================
+Moodel Camera classes
+=====================
+
+Below you will find two examples of properly defined model classes. 
 
 .. autosummary::
     :toctree: _generated
