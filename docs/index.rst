@@ -29,9 +29,7 @@ Contents
 
 
 
-Indices and search
-==================
+Index
+=====
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
