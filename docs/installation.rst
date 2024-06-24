@@ -82,7 +82,7 @@ Configuring camera and acquisition parameters
 
 The last step before launching the program is to configure the parameters of your camera(s). 
 
-To do so, open file *Cameras\Config.py* in an editor. 
+To do so, open file *Cameras/Config.py* in an editor. 
 This file only contains the definition of ``camerasConfigs``: a list of dictionaries each configuring one camera. 
 Leave the first element of the list (index 0) as :py:const:`None` because Camera 0 indicates that no actual camera is connected (at start or if connection fails). 
 

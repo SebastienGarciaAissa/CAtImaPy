@@ -18,7 +18,7 @@ The class definition of :class:`UI.Ui_MainWindow` is generated automatically in 
 
 The variables and buttons in the GUI are connected respectively to variables and methods of the ``mainWin`` object or its main attributes ``Imaging`` or ``Camera``. 
 For most of the variables, the connections are done automatically via ``mainWin`` method :func:`~MainWindow.connectUiVariables`.
-The remaining few variable connections go through dedicated ``mainWin`` methods with format ``on_<variable name>_valueChanged()`` or ``on_<variable name>_stateChanged()``.
+The remaining few variable connections go through dedicated ``mainWin`` methods with format ``on_<variable name>_valueChanged()`` or ``on_<variable name>_stateChanged()``,
 because a value change needs to trigger other changes in GUI values.
 The buttons are connected via ``mainWin`` methods ``on_<button name>_cliked()``.
 

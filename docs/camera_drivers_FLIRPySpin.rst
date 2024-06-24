@@ -21,9 +21,9 @@ You should then be able to import the package with::
 Finally, you should create a dedicated model class for your model 
 by applying the following procedure (unless model class was already impelmented):
 
-#. Open file *Cameras\FLIRPySpin.py* in an editor. 
+#. Open file *Cameras/FLIRPySpin.py* in an editor. 
 
-#. Copy the defintion of the ``ExampleModelClass`` class, and paste it at the end of the file.
+#. Copy the definition of the ``ExampleModelClass`` class, and paste it at the end of the file.
 
 #. In the pasted text, replace "ExampleModel" in the name of the class and the "..." in the docstring below 
    by your model name (the exact same as in the Config files).
