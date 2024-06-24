@@ -16,7 +16,7 @@ analyze and save series of imaging measurements on cold atomic clouds.
    CAtImaPy is a free software under GNU General Public Licence version 3.
    CAtImaPy comes without any waranty, in particular on its results or its maintenance. 
    However, if you have any issues, suggestions, or feedback, 
-   you can raise an issue on GitHub at `https://github.com/SebastienGarciaAissa/CAtImaPy/issues`.
+   you can raise an issue on GitHub at `https://github.com/SebastienGarciaAissa/CAtImaPy/issues`_.
 
 Contents
 ==================
