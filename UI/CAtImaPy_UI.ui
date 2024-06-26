@@ -1468,7 +1468,7 @@
              <bool>false</bool>
             </property>
             <property name="digitCount">
-             <number>4</number>
+             <number>5</number>
             </property>
             <property name="mode">
              <enum>QLCDNumber::Dec</enum>
@@ -1544,7 +1544,7 @@
              <bool>false</bool>
             </property>
             <property name="digitCount">
-             <number>4</number>
+             <number>5</number>
             </property>
             <property name="mode">
              <enum>QLCDNumber::Dec</enum>
@@ -1640,7 +1640,7 @@
              <rect>
               <x>150</x>
               <y>120</y>
-              <width>71</width>
+              <width>111</width>
               <height>21</height>
              </rect>
             </property>
@@ -1965,7 +1965,7 @@
            <locale language="English" country="UnitedStates"/>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>3</number>
           </property>
           <property name="usesScrollButtons">
            <bool>true</bool>

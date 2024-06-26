@@ -9,7 +9,7 @@ camerasConfigs = [None, # config of Camera 0 = no connected camera , leave as No
 dict(name = 'MOT Absorption', # Name chosen by user 
 driver = 'FLIRPySpin', # Driver Name (usually depends  on manufacturer) has to be the name of a file in Cameras folder (module)
 model = 'Chameleon3', # Model name if model+'Class' match name of a Class defined in driver file, use specific child class otherwise use generic driver+'Class'
-serial = 19082375, # serial number of the camera, used to identify the camera
+serial = 19082377, # serial number of the camera, used to identify the camera
 imageBitDepth = 8, # set bit depth of sensor reading (FLIR : 8 => use mono8 format otherwise use mono16 format)
 defaultExposurems = 0.2, # default duration of exposition (exposure) in milliseconds
 defaultGaindB = 0., # 'default hardware gain (amplification) at sensor read in dB
@@ -22,7 +22,7 @@ pixelCalXumperpx = 1,  #µm/pixel
 pixelCalYumperpx = 1,  #µm/pixel
 reversedAxes = [False, False], # decide if for each axis X and Y, if it will be reversed 
 cameraQuantumEff = 0.31/(2.**2), # include effect of bit shift from pixel format, at imaging wavelenght 
-numericalAperture = 0.1, # sin(arctan(D/(2f))) 
+numericalAperture = 0.1234, # sin(arctan(D/(2f))) 
 Imaging__atomicMassAU = 86.909, #e atom mass in atomic units
 Imaging__atomicFrequencyTHz = 384.23, #transition frequency in THz
 Imaging__Isat = 16.693, # W/m² effective saturation intensity : default value
