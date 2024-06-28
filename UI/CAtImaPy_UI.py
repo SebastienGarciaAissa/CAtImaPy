@@ -1798,7 +1798,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.tabWidget_leftside.setCurrentIndex(0)
         self.Camera__setTriggerModeFunc.setCurrentIndex(0)
-        self.tabWidget_rightside.setCurrentIndex(3)
+        self.tabWidget_rightside.setCurrentIndex(0)
         self.Imaging__imagingType.setCurrentIndex(0)
         self.Imaging__plotLeftAxisVar.setCurrentIndex(0)
         self.Imaging__plotRightAxisVar.setCurrentIndex(1)

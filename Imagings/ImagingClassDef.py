@@ -280,12 +280,11 @@ class ImagingClass():
         self.imAt = np.zeros(self.imageSize, dtype=self.imageDtype) #image with atoms
         self.imRef = np.zeros(self.imageSize, dtype=self.imageDtype) # image reference without atoms for absorption
         self.imBkgd = np.zeros(self.imageSize, dtype=self.imageDtype) # image of background (without atoms nor imaging light)
-        # define variables for imaging (some loaded directly from ui)
+        # define variables for imaging (some loaded directly from ui before) 
         self.cameraQuantumEff = self.cameraConfig['cameraQuantumEff'] # quantum efficiency of the sensor at 780 nm 
         self.numericalAperture = self.cameraConfig['numericalAperture']        
         self.atomicMassAU = self.cameraConfig['Imaging__atomicMassAU']
         self.atomicFrequencyTHz = self.cameraConfig['Imaging__atomicFrequencyTHz']
-        self.Isat = self.cameraConfig['Imaging__Isat']
         self.atomicLineFWHWinMHz = self.cameraConfig['Imaging__atomicLineFWHWinMHz']  # atomic natural linewidth in MHz (full width at half maximum in frequency)
         self.atomicgamma = np.pi * self.atomicLineFWHWinMHz * 1.0e+6 # gamma = Gamma/2 : coherence/dipole decay
         self.atomicDensityIntZperum2 = np.zeros(self.imageSize)# atomic density integrated along camera axis : calculated from images, unit atoms/µm²      

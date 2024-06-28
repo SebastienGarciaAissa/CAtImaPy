@@ -392,17 +392,18 @@ def changeValue(value):
             self.ui.lcdNumber_camera_bit_depth.display(self.Imaging.imageBitDepth)
             self.ui.lcdNumber_camera_maxLevel.display(self.Imaging.cameraMaxLevel)
             self.ui.label_image_datatype.setText(str(self.Imaging.imageDtype).split('\'')[1])
-            self.ui.lcdNumber_camera_QuantumEff.display(self.Imaging.cameraConfig['cameraQuantumEff'])
-            self.ui.lcdNumber_camera_numericalAperture.display(self.Imaging.cameraConfig['numericalAperture'])
-            self.ui.lcdNumber_imaging_atomicMassAU.display(self.Imaging.cameraConfig['Imaging__atomicMassAU'])
-            self.ui.lcdNumber_imaging_atomicFrequencyTHz.display(self.Imaging.cameraConfig['Imaging__atomicFrequencyTHz'])
-            self.ui.lcdNumber_imaging_atomicLineFWHWinMHz.display(self.Imaging.cameraConfig['Imaging__atomicLineFWHWinMHz'])
-            self.ui.Imaging__Isat.setValue(self.Imaging.cameraConfig['Imaging__Isat'])
-            self.ui.Imaging__laserPulseDurationus.setValue(self.Imaging.cameraConfig['Imaging__laserPulseDurationus'])
-            self.ui.Imaging__thresholdAbsImg.setValue(self.Imaging.cameraConfig['Imaging__thresholdAbsImg'])
-            self.ui.Imaging__includeSaturationEffects.setChecked(self.Imaging.cameraConfig['Imaging__includeSaturationEffects'])
-            self.ui.Imaging__laserIntensity.setValue(self.Imaging.cameraConfig['Imaging__laserIntensity'])
-            self.ui.Imaging__laserDetuningMHz.setValue(self.Imaging.cameraConfig['Imaging__laserDetuningMHz'])
+            self.ui.lcdNumber_camera_QuantumEff.display(self.Imaging.cameraQuantumEff)
+            self.ui.lcdNumber_camera_numericalAperture.display(self.Imaging.numericalAperture)
+            self.ui.lcdNumber_imaging_atomicMassAU.display(self.Imaging.atomicMassAU)
+            self.ui.lcdNumber_imaging_atomicFrequencyTHz.display(self.Imaging.atomicFrequencyTHz)
+            self.ui.lcdNumber_imaging_atomicLineFWHWinMHz.display(self.Imaging.atomicLineFWHWinMHz)
+            self.ui.Imaging__imagingType.setCurrentIndex(self.Imaging.imagingType)
+            self.ui.Imaging__Isat.setValue(self.Imaging.Isat)
+            self.ui.Imaging__laserPulseDurationus.setValue(self.Imaging.laserPulseDurationus)
+            self.ui.Imaging__thresholdAbsImg.setValue(self.Imaging.thresholdAbsImg)
+            self.ui.Imaging__includeSaturationEffects.setChecked(self.Imaging.includeSaturationEffects)
+            self.ui.Imaging__laserIntensity.setValue(self.Imaging.laserIntensity)
+            self.ui.Imaging__laserDetuningMHz.setValue(self.Imaging.laserDetuningMHz)
             self.ui.imaging_ROIblackNumber.blockSignals(True)
             self.ui.imaging_ROIblackNumber.setValue(self.Imaging.ROIblackTabIndex+1)
             self.ui.imaging_ROIblackNumber.blockSignals(False)
@@ -594,9 +595,20 @@ def changeValue(value):
             if self.camera_loadDefault :
                 self.ui.Imaging__flushSensor.setChecked(self.Camera.cameraConfig['defaultFlushSensor'])
                 self.ui.Imaging__removeBackground.setChecked(self.Camera.cameraConfig['defaultRemoveBackground'])
-            else : 
-                self.ui.Imaging__flushSensor.stateChanged()
-                self.ui.Imaging__removeBackground.stateChanged()
+                if self.Camera.cameraConfig['Imaging__imagingTypeText'] == 'Absorption Imaging':
+                    imagingType = 0
+                elif self.Camera.cameraConfig['Imaging__imagingTypeText'] == 'Fluorescence Imaging': 
+                    imagingType = 1
+                else : 
+                    imagingType = 0
+                    print('WARNING ! : Imaging__imagingTypeText in config file is not Absorption Imaging nor Fluorescence Imaging \n Absorption imaging selected as default.')
+                self.ui.Imaging__imagingType.setCurrentIndex(imagingType)
+                self.ui.Imaging__Isat.setValue(self.Camera.cameraConfig['Imaging__Isat'])
+                self.ui.Imaging__laserPulseDurationus.setValue(self.Camera.cameraConfig['Imaging__laserPulseDurationus'])
+                self.ui.Imaging__thresholdAbsImg.setValue(self.Camera.cameraConfig['Imaging__thresholdAbsImg'])
+                self.ui.Imaging__includeSaturationEffects.setChecked(self.Camera.cameraConfig['Imaging__includeSaturationEffects'])
+                self.ui.Imaging__laserIntensity.setValue(self.Camera.cameraConfig['Imaging__laserIntensity'])
+                self.ui.Imaging__laserDetuningMHz.setValue(self.Camera.cameraConfig['Imaging__laserDetuningMHz'])
             self.ui.lcdNumber_camera_pixelCalXumperpx.display(self.Camera.pixelCalXumperpx)
             self.ui.lcdNumber_camera_pixelCalYumperpx.display(self.Camera.pixelCalYumperpx)
             self.ui.lcdNumber_camera_bit_depth.display(self.Camera.imageBitDepth)
@@ -607,12 +619,6 @@ def changeValue(value):
             self.ui.lcdNumber_imaging_atomicMassAU.display(self.Camera.cameraConfig['Imaging__atomicMassAU'])
             self.ui.lcdNumber_imaging_atomicFrequencyTHz.display(self.Camera.cameraConfig['Imaging__atomicFrequencyTHz'])
             self.ui.lcdNumber_imaging_atomicLineFWHWinMHz.display(self.Camera.cameraConfig['Imaging__atomicLineFWHWinMHz'])
-            self.ui.Imaging__Isat.setValue(self.Camera.cameraConfig['Imaging__Isat'])
-            self.ui.Imaging__laserPulseDurationus.setValue(self.Camera.cameraConfig['Imaging__laserPulseDurationus'])
-            self.ui.Imaging__thresholdAbsImg.setValue(self.Camera.cameraConfig['Imaging__thresholdAbsImg'])
-            self.ui.Imaging__includeSaturationEffects.setChecked(self.Camera.cameraConfig['Imaging__includeSaturationEffects'])
-            self.ui.Imaging__laserIntensity.setValue(self.Camera.cameraConfig['Imaging__laserIntensity'])
-            self.ui.Imaging__laserDetuningMHz.setValue(self.Camera.cameraConfig['Imaging__laserDetuningMHz'])
             #set image array 
             self.image_shown = self.Camera.image.copy()
             #enable UI acquisition buttons

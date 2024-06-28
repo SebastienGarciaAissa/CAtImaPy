@@ -150,6 +150,9 @@ the expected value type, their meaning and their use:
 * numericalAperture (:py:class:`float`): The numerical aperture of your imaging system on the object side, typically :math:`\sin(\arctan(D/2f))`
   with  :math:`f` and :math:`D` the focal and the diameter of the clear aperture of your first lens, respectively. 
   Used in fluorescence imaging to calculate the atomic density.
+  
+* Imaging__imagingTypeText ('Absorption Imaging' or 'Fluorescence Imaging') : Type of imaging, details in :ref:`Tab-Imaging-Set`.
+  Used at each camera connection for initial configuration of the camera, if "Load camera default from config" is checked.
 
 * Imaging__atomicMassAU (:py:class:`float`): The mass of the atom in atomic units.
   Used to calculate temperature after time-of-flight measurements.
@@ -165,7 +168,7 @@ the expected value type, their meaning and their use:
   Unless the operator ensures that the imaging is performed in ideal "two-level-atom" conditions 
   (using the closed transition with the right polarization and magnetic field), 
   the effective saturation intensity will be larger than the one of the closed transition. 
-  Used at each camera connection for initial configuration of this imaging parameter
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
 
 * Imaging__atomicLineFWHWinMHz (:py:class:`float`): The atomic natural linewidth in MHz (full width at half maximum in frequency) 
   of the transition used for imaging.
@@ -174,20 +177,20 @@ the expected value type, their meaning and their use:
 
 * Imaging__thresholdAbsImg (:py:class:`int`): The minimum measured intensity (in electrons per pixel) on reference frame (without atoms)
   in absorption imaging to calculate the atomic density. Below the threshold, the atomic density is set to zero.
-  Used at each camera connection for initial configuration of this imaging parameter.
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
   
 * Imaging__includeSaturationEffects (:py:class:`bool`): Decide to include saturation of atomic response to calculate atomic density. 
   If :py:const:`False`, this is equivalent of setting saturation intensity to infinity.
-  Used at each camera connection for initial configuration of this imaging parameter.
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
 
 * Imaging__laserPulseDurationus (:py:class:`float`):  The duration of laser pulse used for imaging in µs. Used to calculate atomic density.
-  Used at each camera connection for initial configuration of this imaging parameter. 
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked. 
 
 * Imaging__laserIntensity (:py:class:`float`): The intensity of the laser used for fluorescence imaging in W/m² (or µW/mm²).
-  Used at each camera connection for initial configuration of this imaging parameter.
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
 
 * Imaging__laserDetuningMHz (:py:class:`float`): The detuning in MHz from resonance of the laser used for for fluorescence imaging.
-  Used at each camera connection for initial configuration of this imaging parameter.
+  Used at each camera connection for initial configuration of this imaging parameter, if "Load camera default from config" is checked.
 
 
 If you have more than one camera, define new dictionaries as index 2,... of ``camerasConfigs``.
