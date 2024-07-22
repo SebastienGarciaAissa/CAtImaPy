@@ -9,7 +9,7 @@ Launching CAtImaPy
 
 CAtImaPy can be launched by Python or IPython. If you have Python installed, 
 you can normally launch CAtImaPy by double-clicking on the *CAtImaPy.py* file in *CAtImaPy* folder.
-You can also run it via a python coding software like `Spyder <https://www.spyder-ide.org/>`.
+You can also run it via a python coding software like `Spyder <https://www.spyder-ide.org/>`_.
 
 You should then see the GUI opening like this :
 
@@ -30,22 +30,33 @@ Preparation and operation
 
 The general procedure to prepare and launch a standard imaging measurement is the following sequence:  
 
-# Connect the camera in the :ref:`Tab-Camera`.
-# Check/change the parameters of the camera in the left tabs.
-# Check/change the ROIs used for analysis in :ref:`Tab-Analysis-ROIs`.
-# Check/change the parameters of the measurement in :ref:`Tab-Imaging-Set` and :ref:`Tab-Imaging`. 
-# Launch an imaging measurement by clicking the *Start Measurement* button in :ref:`Tab-Imaging`. 
-# Start the experiment control with the matching number of experimental sequences.  
+#. Connect the camera in the :ref:`Tab-Camera`.
+
+#. Check/change the parameters of the camera in the left tabs.
+
+#. Check/change the ROIs used for analysis in :ref:`Tab-Analysis-ROIs`.
+
+#. Check/change the parameters of the measurement in :ref:`Tab-Imaging-Set` and :ref:`Tab-Imaging`. 
+
+#. Launch an imaging measurement by clicking the *Start Measurement* button in :ref:`Tab-Imaging`. 
+
+#. Start the experiment control with the matching number of experimental sequences.  
 
 Then, CAtImaPy will: 
 
-# Wait for triggers to arrive on the camera and acquire the images, and optionally save them.
-# Calculate the measured atomic density and integrate the numbers of atoms in the defined ROIs.
-# Fit Gaussian functions on the atomic density integrated along each axis in the defined ROIs.
-# Repeat the operations above for the given number of *Averages*.
-# Fit Gaussians on the average atomic density, giving the cloud center and radii (standard deviations).
-# Update right graph and GUI values with the results of the fits.
-# Repeat the operations above for the given number of *Scans*, and optionally save chosen results.
+#. Wait for triggers to arrive on the camera and acquire the images, and optionally save them.
+
+#. Calculate the measured atomic density and integrate the numbers of atoms in the defined ROIs.
+
+#. Fit Gaussian functions on the atomic density integrated along each axis in the defined ROIs.
+
+#. Repeat the operations above for the given number of *Averages*.
+
+#. Fit Gaussians on the average atomic density, giving the cloud center and radii (standard deviations).
+
+#. Update right graph and GUI values with the results of the fits.
+
+#. Repeat the operations above for the given number of *Scans*, and optionally save chosen results.
 
 Afterwards, the user can interact with the graphs and the tabs again. 
 In particular, the :ref:`Tab-plot` allows one to change the results shown on the left graph 
