@@ -17,6 +17,10 @@ analyze and save series of imaging measurements on cold atomic clouds.
    CAtImaPy comes without any waranty, in particular on its results or its maintenance. 
    However, if you have any issues, suggestions, or feedback, 
    you can raise an issue on GitHub at `CAtImaPy's issues <https://github.com/SebastienGarciaAissa/CAtImaPy/issues>`_.
+   
+You can cite this software via Zenodo using the DOI :
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.12806162.svg
+  :target: https://doi.org/10.5281/zenodo.12806162
 
 Contents
 ==================
