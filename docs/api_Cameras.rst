@@ -71,7 +71,7 @@ Direct driver classes
     :toctree: _generated
     :nosignatures:
         
-        ~Cameras.FLIRPySpin.FLIRPySpinClass
+        ~FLIRPySpin.FLIRPySpinClass
 
 
 Pylablib interface class
@@ -81,7 +81,7 @@ Pylablib interface class
     :toctree: _generated
     :nosignatures:
         
-        ~Cameras.PylablibInterfaceClassDef.PylablibInterfaceClass
+        ~PylablibInterfaceClassDef.PylablibInterfaceClass
 
 
 Pylablib-based driver classes
@@ -91,21 +91,21 @@ Pylablib-based driver classes
     :toctree: _generated
     :nosignatures:
         
-        ~Cameras.AndorSDK2.AndorSDK2Class
-        ~Cameras.AndorSDK3.AndorSDK3Class
-        ~Cameras.HamamatsuDCAM.HamamatsuDCAMClass
-        ~Cameras.IDSueye.IDSueyeClass
-        ~Cameras.NIIMAQdx.NIIMAQdxClass
-        ~Cameras.PCOSC2.PCOSC2Class
-        ~Cameras.Photometrics.PhotometricsClass
-        ~Cameras.PrincetonInstruments.PrincetonInstrumentsClass
-        ~Cameras.Thorlabs.ThorlabsClass
-        ~Cameras.ThorlabsUC480.ThorlabsUC480Class
+        ~AndorSDK2.AndorSDK2Class
+        ~AndorSDK3.AndorSDK3Class
+        ~HamamatsuDCAM.HamamatsuDCAMClass
+        ~IDSueye.IDSueyeClass
+        ~NIIMAQdx.NIIMAQdxClass
+        ~PCOSC2.PCOSC2Class
+        ~Photometrics.PhotometricsClass
+        ~PrincetonInstruments.PrincetonInstrumentsClass
+        ~Thorlabs.ThorlabsClass
+        ~ThorlabsUC480.ThorlabsUC480Class
 
 
 .. _Model-Camera-classes:
 
-Moodel Camera classes
+Model Camera classes
 =====================
 
 Below you will find two examples of properly defined model classes. 
@@ -114,8 +114,8 @@ Below you will find two examples of properly defined model classes.
     :toctree: _generated
     :nosignatures:
         
-        Cameras.FLIRPySpin.Chameleon3Class
-        Cameras.Thorlabs.ZeluxClass
+        FLIRPySpin.Chameleon3Class
+        Thorlabs.ZeluxClass
         
         
         
