@@ -1,5 +1,6 @@
 numpy>=1.21.0
 matplotlib>=3.5.0
+tifffile>=2021.7.2
 PyQt5>=5.15
 scipy>=1.7.0
 sphinx>=7.0.0
