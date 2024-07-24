@@ -74,7 +74,7 @@ Direct driver classes
         ~FLIRPySpin.FLIRPySpinClass
 
 
-Pylablib interface class
+PyLabLib interface class
 ------------------------
 
 .. autosummary::
@@ -84,7 +84,7 @@ Pylablib interface class
         ~PylablibInterfaceClassDef.PylablibInterfaceClass
 
 
-Pylablib-based driver classes
+PyLabLib-based driver classes
 -----------------------------
 
 .. autosummary::
